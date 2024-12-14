@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <span>AI Assistant</span>
+            </div>
+            <div class="chatbot-controls">
+                <button onclick="toggleEmailForm()" class="email-button">📧</button>
+                <button onclick="toggleMinimize()" class="minimize-button">🔼</button>
+            </div>
+        </div>
+
+        <div class="chatbot-messages" id="messages">
+            <!-- Messages will be added here -->
+        </div>
+
+        <div class="chatbot-input">
+            <input 
+                type="text" 
+                id="userInput" 
+                placeholder="Type your message..."
+                onkeydown="handleKeyPress(event)"
+            >
+            <button onclick="handleSend()">Send</button>
+        </div>
+
+        <div class="email-form-overlay" id="emailForm" style="display: none;">
+            <form onsubmit="handleEmailSubmit(event)" class="email-form">
+                <h3>Get Chat Transcript</h3>
+                <input
+                    type="email"
+                    id="emailInput"
+                    placeholder="Enter your email"
+                    required
+                >
+                <div class="email-form-buttons">
+                    <button type="submit">Send</button>
+                    <button type="button" onclick="toggleEmailForm()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
